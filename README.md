@@ -39,15 +39,6 @@ control-de-gastos/
 6. **Adaptabilidad:** reduce el ancho de la ventana o abre las herramientas de desarrollo (F12) y activa la vista de móvil. El diseño debe pasar a una sola columna.
 7. **Datos guardados:** en F12, pestaña *Application* (o *Almacenamiento*) → *Local Storage*, verás la clave `control-gastos:movimientos`. Para empezar de cero, bórrala y recarga.
 
-## Preparar el proyecto para GitHub
-
-Estos pasos son una guía; ejecútalos cuando decidas publicar.
-
-1. Instala [Git](https://git-scm.com) y configura tu nombre y correo (`git config --global user.name "Tu Nombre"` y `git config --global user.email "tu@correo.com"`).
-2. En la carpeta del proyecto: `git init`, luego `git add .` y `git commit -m "Primera versión de Control de Gastos"`.
-3. Crea un repositorio vacío en GitHub (sin README ni .gitignore, porque ya tienes los tuyos).
-4. Conéctalo y súbelo con los comandos que GitHub te muestra: `git remote add origin <URL>`, `git branch -M main` y `git push -u origin main`.
-5. Opcional: en *Settings → Pages* del repositorio puedes publicar la aplicación gratis desde la rama `main`.
 
 ## Posibles mejoras
 
