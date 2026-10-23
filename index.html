@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Control de Gastos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="cabecera">
+    <h1>Control de Gastos</h1>
+    <p>Registra lo que entra y lo que sale. Tus datos se guardan en este navegador.</p>
+  </header>
+
+  <main class="contenedor">
+    <!-- Tarjetas de resumen -->
+    <section class="resumen" aria-label="Resumen de tus finanzas">
+      <article class="tarjeta tarjeta-saldo">
+        <h2>Saldo</h2>
+        <p id="saldo" class="cifra">$ 0</p>
+      </article>
+      <article class="tarjeta">
+        <h2>Ingresos</h2>
+        <p id="total-ingresos" class="cifra positivo">$ 0</p>
+      </article>
+      <article class="tarjeta">
+        <h2>Gastos</h2>
+        <p id="total-gastos" class="cifra negativo">$ 0</p>
+      </article>
+    </section>
+
+    <div class="paneles">
+      <!-- Formulario para añadir movimientos -->
+      <section class="panel" aria-labelledby="titulo-formulario">
+        <h2 id="titulo-formulario">Nuevo movimiento</h2>
+        <form id="formulario" novalidate>
+          <fieldset class="campo">
+            <legend>Tipo</legend>
+            <div class="segmentos">
+              <label><input type="radio" name="tipo" value="gasto" checked><span>Gasto</span></label>
+              <label><input type="radio" name="tipo" value="ingreso"><span>Ingreso</span></label>
+            </div>
+            <p class="error" id="error-tipo" aria-live="polite"></p>
+          </fieldset>
+
+          <div class="campo">
+            <label for="descripcion">Descripción</label>
+            <input id="descripcion" name="descripcion" type="text" maxlength="60" autocomplete="off" placeholder="Ej: Mercado de la semana">
+            <p class="error" id="error-descripcion" aria-live="polite"></p>
+          </div>
+
+          <div class="campo">
+            <label for="importe">Importe (COP)</label>
+            <input id="importe" name="importe" type="text" inputmode="numeric" autocomplete="off" placeholder="Ej: 85000">
+            <p class="error" id="error-importe" aria-live="polite"></p>
+          </div>
+
+          <div class="campo">
+            <label for="categoria">Categoría</label>
+            <select id="categoria" name="categoria"></select>
+            <p class="error" id="error-categoria" aria-live="polite"></p>
+          </div>
+
+          <div class="campo">
+            <label for="fecha">Fecha</label>
+            <input id="fecha" name="fecha" type="date">
+            <p class="error" id="error-fecha" aria-live="polite"></p>
+          </div>
+
+          <button type="submit" class="boton">Añadir movimiento</button>
+          <p class="aviso" id="aviso" role="status"></p>
+        </form>
+      </section>
+
+      <!-- Historial -->
+      <section class="panel" aria-labelledby="titulo-historial">
+        <div class="historial-cabecera">
+          <h2 id="titulo-historial">Historial</h2>
+          <div class="filtros" role="group" aria-label="Filtrar por tipo">
+            <button type="button" class="filtro" data-filtro="todos" aria-pressed="true">Todos</button>
+            <button type="button" class="filtro" data-filtro="ingreso" aria-pressed="false">Ingresos</button>
+            <button type="button" class="filtro" data-filtro="gasto" aria-pressed="false">Gastos</button>
+          </div>
+        </div>
+        <ul id="lista" class="lista"></ul>
+        <p id="vacio" class="vacio"></p>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
